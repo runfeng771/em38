@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: email-management-system
+    env: node
+    buildCommand: npm run render-build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: file:/tmp/custom.db
+    disk:
+      name: tmp
+      mountPath: /tmp
+      sizeGB: 1
